@@ -1,0 +1,11 @@
+30-Day Moving Average Sales = 
+// Calculate a 30-day rolling average for smoother trend lines
+AVERAGEX(
+    DATESINPERIOD(
+        'Date'[Date], 
+        LASTDATE('Date'[Date]), 
+        -30, 
+        DAY
+    ),
+    [Total Sales]
+)

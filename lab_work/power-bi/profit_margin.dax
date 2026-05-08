@@ -1,0 +1,11 @@
+Profit Margin % = 
+// Safe division to calculate margin percentage
+VAR TotalRev = [Total Sales]
+VAR TotalCost = SUM(Sales[TotalCost])
+VAR Profit = TotalRev - TotalCost
+RETURN
+    DIVIDE(
+        Profit,
+        TotalRev,
+        0 // Return 0 if division by zero occurs
+    )

@@ -1,0 +1,8 @@
+YTD Sales = 
+// Calculate Year-to-Date sales using standard time intelligence
+CALCULATE(
+    [Total Sales],
+    DATESYTD('Date'[Date]),
+    // Ensure we only calculate up to the max date with sales
+    'Date'[Date] <= MAX(Sales[OrderDate])
+)

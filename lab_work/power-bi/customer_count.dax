@@ -1,0 +1,9 @@
+Active Customer Count = 
+// Count distinct customers who have made a purchase in the current context
+CALCULATE(
+    DISTINCTCOUNT(Sales[CustomerID]),
+    FILTER(
+        Customers,
+        Customers[IsActive] = TRUE()
+    )
+)

@@ -1,0 +1,115 @@
+-- CREATE database CompanyDB;
+-- USE CompanyDB;
+-- CREATE TABLE Employees (
+--     emp_id INT PRIMARY KEY,
+--     emp_name VARCHAR(50),
+--     dept_id INT,
+--     salary INT,
+--     hire_date DATE,
+--     city VARCHAR(50)
+-- );
+
+-- INSERT INTO Employees (emp_id, emp_name, dept_id, salary, hire_date, city) VALUES
+-- (101, 'Anuj', 1, 50000, '2022-01-10', 'Delhi'),
+-- (102, 'Ravi', 2, 60000, '2021-03-15', 'Mumbai'),
+-- (103, 'Neha', 1, 55000, '2020-07-20', 'Delhi'),
+-- (104, 'Amit', 3, 70000, '2019-11-01', 'Pune'),
+-- (105, 'Sneha', 2, 65000, '2023-05-12', 'Mumbai'),
+-- (106, 'Karan', 3, 72000, '2018-08-25', 'Bangalore'),
+-- (107, 'Pooja', 1, 48000, '2022-09-30', 'Delhi'),
+-- (108, 'Raj', 2, 52000, '2021-12-11', 'Chennai'),
+-- (109, 'Meena', 3, 68000, '2020-02-14', 'Pune'),
+-- (110, 'Vikas', 1, 51000, '2023-01-18', 'Delhi');
+
+-- CREATE TABLE Departments (
+--     dept_id INT PRIMARY KEY,
+--     dept_name VARCHAR(50)
+-- );
+
+-- INSERT INTO Departments (dept_id, dept_name) VALUES
+-- (1, 'HR'),
+-- (2, 'Sales'),
+-- (3, 'IT');
+
+
+-- CREATE TABLE Projects (
+--     project_id INT PRIMARY KEY,
+--     project_name VARCHAR(50),
+--     dept_id INT,
+--     budget INT
+-- );
+
+-- INSERT INTO Projects (project_id, project_name, dept_id, budget) VALUES
+-- (201, 'Alpha', 1, 100000),
+-- (202, 'Beta', 2, 150000),
+-- (203, 'Gamma', 3, 200000),
+-- (204, 'Delta', 2, 120000);
+
+-- CREATE TABLE Attendance (
+--     emp_id INT,
+--     date DATE,
+--     status VARCHAR(10)
+-- );
+
+-- INSERT INTO Attendance (emp_id, date, status) VALUES
+-- (101, '2024-03-01', 'Present'),
+-- (102, '2024-03-01', 'Absent'),
+-- (103, '2024-03-01', 'Present'),
+-- (104, '2024-03-01', 'Present'),
+-- (105, '2024-03-01', 'Absent'),
+-- (106, '2024-03-01', 'Present'),
+-- (107, '2024-03-01', 'Present'),
+-- (108, '2024-03-01', 'Present'),
+-- (109, '2024-03-01', 'Absent'),
+-- (110, '2024-03-01', 'Present');
+-- USE CompanyDB;
+-- SELECT * FROM Employees WHERE dept_id = 1;
+-- SELECT * FROM Employees WHERE city = 'Delhi';
+-- SELECT * FROM Employees WHERE salary > 60000;
+-- SELECT * FROM Employees WHERE hire_date > '2021-12-31';
+-- SELECT DISTINCT city FROM Employees;
+-- SELECT * FROM Employees ORDER BY salary DESC;
+-- SELECT COUNT(*) AS Total_Employees FROM Employees;
+-- SELECT AVG(salary) AS Average_Salary FROM Employees;
+-- SELECT dept_id, SUM(salary) AS Total_Salary FROM Employees GROUP BY dept_id;
+-- SELECT dept_id, COUNT(*) AS Employee_Count FROM Employees GROUP BY dept_id;
+-- SELECT dept_id, MAX(salary) AS Max_Salary FROM Employees GROUP BY dept_id;
+-- SELECT e.emp_name, d.dept_name 
+-- FROM Employees e 
+-- JOIN Departments d ON e.dept_id = d.dept_id;
+-- SELECT e.* FROM Employees e 
+-- JOIN Departments d ON e.dept_id = d.dept_id 
+-- WHERE d.dept_name = 'Sales';
+-- SELECT * FROM Employees WHERE emp_name LIKE 'A%';
+-- SELECT * FROM Employees WHERE salary BETWEEN 50000 AND 70000;
+-- SELECT * FROM Employees WHERE city <> 'Mumbai';
+-- SELECT * FROM Employees WHERE hire_date LIKE '2022%';
+-- OR: WHERE YEAR(hire_date) = 2022;
+-- SELECT * FROM Employees ORDER BY salary DESC LIMIT 3;
+-- SELECT * FROM Employees 
+-- INNER JOIN Departments ON Employees.dept_id = Departments.dept_id;
+-- SELECT e.emp_name, d.dept_name 
+-- FROM Employees e 
+-- LEFT JOIN Departments d ON e.dept_id = d.dept_id;
+-- SELECT e.emp_name 
+-- FROM Employees e 
+-- JOIN Departments d ON e.dept_id = d.dept_id 
+-- WHERE d.dept_name = 'IT';
+-- SELECT e.emp_name, p.project_name, p.budget 
+-- FROM Employees e 
+-- JOIN Projects p ON e.dept_id = p.dept_id;
+-- SELECT MAX(salary) FROM Employees 
+-- WHERE salary < (SELECT MAX(salary) FROM Employees);
+-- SELECT emp_name, salary, RANK() OVER (ORDER BY salary DESC) as salary_rank 
+-- FROM Employees;
+-- SELECT * FROM Employees 
+-- WHERE salary > (SELECT AVG(salary) FROM Employees);
+-- SELECT dept_id, SUM(salary) AS total_sal 
+-- FROM Employees 
+-- GROUP BY dept_id 
+-- ORDER BY total_sal DESC 
+-- LIMIT 1;
+-- SELECT e.emp_name 
+-- FROM Employees e 
+-- JOIN Attendance a ON e.emp_id = a.emp_id 
+-- WHERE a.date = '2024-03-01' AND a.status = 'Absent';

@@ -1,0 +1,9 @@
+Total Sales = 
+// Calculate total sales while handling potential blank values
+VAR CurrentSales = SUM(Sales[SalesAmount])
+RETURN
+    IF(
+        ISBLANK(CurrentSales),
+        0,
+        CurrentSales
+    )
