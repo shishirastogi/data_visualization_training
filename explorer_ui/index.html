@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro File Explorer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Decorative Stars -->
+    <div class="star star-1">✧</div>
+    <div class="star star-2">✦</div>
+    <div class="star star-3">✧</div>
+    <div class="star star-4">✦</div>
+    <div class="star star-5">✧</div>
+
+    <div class="window main-window">
+        <div class="window-header">
+            <div class="window-controls">
+                <div class="control-btn btn-close"><span>×</span></div>
+                <div class="control-btn btn-min"><span>-</span></div>
+                <div class="control-btn btn-max"><span>□</span></div>
+            </div>
+            <div class="window-title">C:\Data_Viz_Training\Explorer</div>
+        </div>
+        <div class="window-body">
+            <div class="toolbar">
+                <button id="btn-up" class="retro-btn">Up</button>
+                <div class="path-display" id="path-display">/</div>
+            </div>
+            <div class="content-area" id="file-grid">
+                <!-- Files and folders will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- File View Modal -->
+    <div class="window modal-window hidden" id="file-modal">
+        <div class="window-header purple-header">
+            <div class="window-controls">
+                <div class="control-btn btn-close" id="modal-close"><span>×</span></div>
+                <div class="control-btn btn-min"><span>-</span></div>
+                <div class="control-btn btn-max"><span>□</span></div>
+            </div>
+            <div class="window-title" id="modal-title">File.txt</div>
+        </div>
+        <div class="window-body">
+            <textarea id="file-content" readonly></textarea>
+            <div class="modal-actions">
+                <button class="retro-btn" id="modal-ok">Ok</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
